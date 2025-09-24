@@ -3,8 +3,7 @@
 Welcome to the frontend repository of **TriD**, a graduation project from Cairo University redefining online shopping through immersive 3D and VR technologies. This interface lets users explore virtual shops, inspect products interactively, and navigate the shopping journey via Extended Reality.
 
 > 🎓 Developed by:  
-> MaZeN RaMaDaN • Rawan Adel • Zeyad Ayman • Ahmed Mahmoud • Mostafa Khfagy • Mohammed Ragab  
-> Supervised by **Dr. Hend Dawood**
+> Rawan Adel • Zeyad Ayman • Ahmed Mahmoud 
 
 ---
 
@@ -26,7 +25,6 @@ Blender was used to model 3D environments, and physics engines ensure realistic 
 
 > 🔗 Explore now: [go-trid.vercel.app](https://go-trid.vercel.app)
 
-- 🕶️ VR showroom at 04:34 in [Video Demo](https://www.linkedin.com/posts/mohammedragab00_graduationproject-vrcommerce-3decommerce-activity-7351290174015705091-FROs?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEQcEhIBSFaUfQSLRxpyZ-n8iLei80bYD7E)
 - 📘 Deepwiki Documentation: [TriD Deepwiki](https://deepwiki.com/zeyaday-man/Trid_Frontend)
 
 ---
