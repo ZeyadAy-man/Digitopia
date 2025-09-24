@@ -1,0 +1,362 @@
+.heroSection {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sliderContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slideActive {
+  opacity: 1;
+}
+
+.slideImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slideOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(13, 115, 119, 0.8) 0%,
+    rgba(13, 193, 163, 0.8) 100%
+  );
+}
+
+.heroContent {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  color: white;
+  max-width: 800px;
+  padding: 0 24px;
+}
+
+.heroWelcome {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 12px 24px;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 32px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.heroWelcomeIcon {
+  width: 20px;
+  height: 20px;
+  color: #ffd700;
+}
+
+.heroWelcomeText {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.heroTitle {
+  font-size: clamp(28px, 8vw, 72px);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+.heroTitleGradient {
+  background: linear-gradient(135deg, #0dc1a3 0%, #0d7377 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroDescription {
+  font-size: clamp(16px, 4vw, 20px);
+  margin-bottom: 40px;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.heroButtons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.primaryButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #0dc1a3 0%, #0d7377 100%);
+  color: #212121;
+  border: none;
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.primaryButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(13, 193, 163, 0.4);
+}
+
+.secondaryButton {
+  padding: 16px 32px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.secondaryButton:hover {
+  background: #0dc1a3;
+  border-color: #0d7377;
+  transform: translateY(-3px);
+}
+
+.buttonIcon {
+  width: 18px;
+  height: 18px;
+}
+
+.sliderDots {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  gap: 12px;
+}
+
+.sliderDot {
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.sliderDotActive {
+  background: #0dc1a3;
+  transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    min-height: 500px;
+  }
+
+  .heroContent {
+    padding: 0 20px;
+    max-width: 600px;
+  }
+
+  .heroWelcome {
+    padding: 10px 20px;
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+
+  .heroWelcomeIcon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .heroDescription {
+    margin-bottom: 32px;
+  }
+
+  .heroButtons {
+    gap: 16px;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    padding: 14px 28px;
+    font-size: 16px;
+  }
+
+  .buttonIcon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .sliderDots {
+    bottom: 32px;
+    gap: 10px;
+  }
+
+  .sliderDot {
+    width: 10px;
+    height: 10px;
+  }
+}
+@media (max-width: 480px) {
+  .heroSection {
+    min-height: 400px;
+  }
+
+  .heroContent {
+    padding: 0 16px;
+    max-width: 100%;
+  }
+
+  .heroWelcome {
+    padding: 8px 16px;
+    font-size: 13px;
+    margin-bottom: 20px;
+    gap: 6px;
+  }
+
+  .heroWelcomeIcon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .heroDescription {
+    margin-bottom: 28px;
+    padding: 0 8px;
+  }
+
+  .heroButtons {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    padding: 12px 24px;
+    font-size: 14px;
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+
+  .buttonIcon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .sliderDots {
+    bottom: 24px;
+    gap: 8px;
+  }
+
+  .sliderDot {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@media (max-width: 320px) {
+  .heroSection {
+    min-height: 350px;
+  }
+
+  .heroContent {
+    padding: 0 12px;
+  }
+
+  .heroWelcome {
+    padding: 6px 12px;
+    font-size: 12px;
+    margin-bottom: 16px;
+    gap: 4px;
+  }
+
+  .heroWelcomeIcon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .heroTitle {
+    margin-bottom: 16px;
+  }
+
+  .heroDescription {
+    margin-bottom: 24px;
+    padding: 0 4px;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    padding: 10px 20px;
+    font-size: 13px;
+    max-width: 240px;
+  }
+
+  .buttonIcon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .sliderDots {
+    bottom: 20px;
+    gap: 6px;
+  }
+
+  .sliderDot {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
+  .heroSection {
+    min-height: 100vh;
+  }
+
+  .heroContent {
+    transform: scale(0.8);
+  }
+
+  .sliderDots {
+    bottom: 16px;
+  }
+}

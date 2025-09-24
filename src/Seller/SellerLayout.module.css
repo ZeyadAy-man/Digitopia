@@ -1,0 +1,493 @@
+* {
+  box-sizing: border-box;
+}
+
+.sellerLayout {
+  display: flex;
+  min-height: 100vh;
+  background-color: #eeeeee;
+  color: #212121;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sidebar {
+  width: 280px;
+  background-color: #ffffff;
+  border-right: 1px solid #e5e5e5;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 999;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.sidebar.collapsed {
+  width: 80px;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.logoSection {
+  padding: 1.5rem 1rem;
+  border-bottom: 1px solid #e5e5e5;
+  background: linear-gradient(135deg, #0dc1a3, #0d7377);
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logoIcon {
+  width: 40px;
+  height: 40px;
+  background-color: #ffffff;
+  color: #0dc1a3;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.logoText {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  opacity: 1;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.collapsed .logoText {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+.navigation {
+  flex: 1;
+  padding: 1.5rem 0;
+  overflow-y: auto;
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1.5rem;
+  color: #525252;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-left: 3px solid transparent;
+  position: relative;
+}
+
+.navLink:hover {
+  background-color: #f5f5f5;
+  color: #0d7377;
+}
+
+.navLink.activeLink {
+  background-color: rgba(13, 193, 163, 0.1);
+  color: #0dc1a3;
+  border-left-color: #0dc1a3;
+  font-weight: 500;
+}
+
+.navIcon {
+  flex-shrink: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navText {
+  font-size: 0.875rem;
+  font-weight: 500;
+  opacity: 1;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.collapsed .navText {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+.collapsed .navLink {
+  justify-content: center;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.userSection {
+  border-top: 1px solid #e5e5e5;
+  padding: 1.5rem 1rem;
+  background-color: #f5f5f5;
+}
+
+.userProfile {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.userAvatar {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.profileImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #0dc1a3;
+}
+
+.statusIndicator {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  background-color: #0dc1a3;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+}
+
+.userInfo {
+  overflow: hidden;
+  opacity: 1;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.collapsed .userInfo {
+  opacity: 0;
+  width: 0;
+}
+
+.userName {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #212121;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.userRole {
+  font-size: 0.75rem;
+  color: #737373;
+  margin: 0;
+}
+
+.logoutBtn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.75rem;
+  background: none;
+  border: 1px solid #d4d4d4;
+  border-radius: 8px;
+  color: #c42d1c;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.logoutBtn:hover {
+  background-color: rgba(196, 45, 28, 0.1);
+  border-color: #c42d1c;
+}
+
+.logoutBtn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(196, 45, 28, 0.2);
+}
+
+.logoutIcon {
+  flex-shrink: 0;
+}
+
+.collapsed .logoutBtn {
+  justify-content: center;
+}
+
+.contentWrapper {
+  flex: 1;
+  margin-left: 280px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.collapsed + .contentWrapper {
+  margin-left: 80px;
+}
+
+/* Header */
+.header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e5e5e5;
+  padding: 1rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pageTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #212121;
+  margin: 0;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.userBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background-color: #0dc1a3;
+  border-radius: 12px;
+  color: #ffffff;
+}
+
+.headerProfileImage {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.headerUserName {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.menuButton {
+  display: none;
+  background: none;
+  border: none;
+  color: #212121;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menuButton:hover {
+  background-color: #f5f5f5;
+}
+
+.menuButton:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(13, 193, 163, 0.2);
+}
+
+.main {
+  flex: 1;
+  padding: 2rem 1.5rem;
+  background-color: #eeeeee;
+}
+
+.footer {
+  background: rgba(15, 15, 30, 0.75);
+  backdrop-filter: blur(10px);
+  color: #f0f0f0;
+  padding: 40px 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 -10px 30px rgba(0, 255, 200, 0.1);
+  font-family: 'Segoe UI', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0,255,200,0.15), transparent 60%);
+  animation: rotateGlow 20s linear infinite;
+  z-index: 0;
+}
+
+@keyframes rotateGlow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.footerContent {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  text-align: center;
+}
+
+.footerLinks {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.footerLink {
+  color: #7fe6c4;
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
+}
+
+.footerLink::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(to right, #7fe6c4, #00ffc8);
+  transition: width 0.4s ease;
+}
+
+.footerLink:hover {
+  color: #ffffff;
+}
+
+.footerLink:hover::after {
+  width: 100%;
+}
+
+.copyright {
+  font-size: 14px;
+  color: #bbbbbb;
+}
+
+/* Larger screens layout */
+@media (min-width: 768px) {
+  .footerContent {
+    grid-template-columns: repeat(2, 1fr);
+    text-align: left;
+    align-items: center;
+  }
+
+  .footerLinks {
+    justify-content: flex-end;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .contentWrapper {
+    margin-left: 0;
+  }
+
+  .collapsed + .contentWrapper {
+    margin-left: 0;
+  }
+
+  .menuButton {
+    display: block;
+  }
+
+  .headerContent {
+    margin-left: 3rem;
+  }
+
+  .userBadge {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .main {
+    padding: 1rem;
+  }
+
+  .header {
+    padding: 1rem;
+  }
+
+  .footer {
+    padding: 1rem;
+  }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.navLink:focus-visible,
+.menuButton:focus-visible,
+.logoutBtn:focus-visible {
+  outline: 2px solid #0dc1a3;
+  outline-offset: 2px;
+}
+
+body.sidebar-open {
+  overflow: hidden;
+}

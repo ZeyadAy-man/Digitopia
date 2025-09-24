@@ -1,0 +1,61 @@
+:root {
+  --admin-primary: #00bb9c;
+  --admin-card-bg: #fff;
+  --admin-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  --admin-radius: 12px;
+  --admin-muted: #718096;
+}
+
+.containerOfMonthlyChartComponent {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background: var(--admin-card-bg);
+  width: 100%;
+  max-width: 920px;
+  min-width: 180px;
+  min-height: 250px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: var(--admin-radius);
+  box-shadow: var(--admin-shadow);
+  padding: 1.5rem 2rem;
+  margin: 10px 0;
+}
+.containerOfHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.titleOfObjective {
+  color: var(--admin-primary);
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+.totalProfits {
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--admin-primary);
+}
+.containerOfIconAndProfits {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.iconOfChart {
+  margin-left: 0.5rem;
+}
+@media (max-width: 600px) {
+  .containerOfMonthlyChartComponent {
+    padding: 1rem 0.5rem;
+    height: 220px;
+  }
+  .containerOfHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
